@@ -1,109 +1,170 @@
 .main-navigation {
-	display: block;
-	width: 100%;
-
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-
-	li {
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+    display: block;
+    width: 100%;
+    ul {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        ul {
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+            float: left;
+            position: absolute;
+            top: 100%;
+            left: -999em;
+            z-index: 99999;
+            ul {
+                left: -999em;
+                top: 0;
+            }
+            li {
+                &:hover>ul,
+                &.focus>ul {
+                    display: block;
+                    left: auto;
+                }
+            }
+            a {
+                width: 200px;
+            }
+            :hover>a,
+            .focus>a {}
+            a:hover,
+            a.focus {}
+        }
+        li:hover>ul,
+        li.focus>ul {
+            left: auto;
+        }
+    }
+    li {
+        position: relative;
+        &:hover>a,
+        &.focus>a {}
+    }
+    a {
+        display: block;
+        text-decoration: none;
+    }
+    .current_page_item>a,
+    .current-menu-item>a,
+    .current_page_ancestor>a,
+    .current-menu-ancestor>a {}
 }
-
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
+    display: block;
 }
-
 @media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+    .menu-toggle {
+        display: none;
+    }
+    .main-navigation ul {
+        display: flex;
+    }
 }
-
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-	}
-
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+    .site-main & {
+        margin: 0 0 1.5em;
+    }
+    .nav-links {
+        display: flex;
+    }
+    .nav-previous {
+        flex: 1 0 50%;
+    }
+    .nav-next {
+        text-align: end;
+        flex: 1 0 50%;
+    }
+}
+.header {
+    padding: 24px 0;
+    border-bottom: 2px solid black;
+    &__menuwrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__menu {
+        display: flex;
+        gap: 40px;
+        a {
+            color: black;
+            font-family: var(--primary-font);
+            font-size: 1rem;
+        }
+    }
+    &__cta {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    &__nav {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+/* Basic styling for hamburger menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    span {
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+        display: block;
+        margin: 3px 0;
+    }
+    @media screen and (max-width: 768px) {
+        display: flex;
+    }
+}
+.close-menu {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+}
+.menu-open {
+    .close-menu {
+        position: absolute;
+        right: 20px;
+        z-index: 10;
+    }
+    .header {
+        &__nav {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            padding: 20px;
+        }
+        &__nav {
+            ul {
+                display: block;
+                list-style: none;
+                li {
+                    margin: 10px 0;
+                }
+            }
+        }
+        &__cta {
+            position: relative;
+            margin-top: 20px;
+        }
+    }
 }
