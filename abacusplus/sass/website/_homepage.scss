@@ -1,0 +1,142 @@
+.hero {
+    padding: 230px 0px 180px 0px;
+    &__wrapper {
+        display: flex;
+    }
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    &__buttons {
+        display: flex;
+        gap: 32px;
+    }
+    &__image {
+        display: flex;
+        width: 44%;
+        bottom: -170px;
+        position: relative;
+    }
+}
+.partners {
+    padding: 150px 0px;
+    .caption {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        margin-bottom: 60px;
+    }
+    &__logos {
+        display: flex;
+        gap: 110px;
+    }
+}
+.plans {
+    padding: 150px 0px;
+    .caption {
+        margin-bottom: 24px;
+    }
+    &__highlighted {
+        .greenword {
+            background: linear-gradient(to right, #55D087 96.6%, transparent 90%);
+            display: inline-block;
+        }
+        .redword {
+            background: linear-gradient(to right, var(--primary-color-500) 96.6%, transparent 90%);
+            display: inline-block;
+        }
+        .purpleword {
+            background: linear-gradient(to right, #7B5FF1 96.6%, transparent 90%);
+            display: inline-block;
+        }
+        .orangeword {
+            background: linear-gradient(to right, #FF8B37 93%, transparent 90%);
+            display: inline-block;
+        }
+        .greyword {
+            background: linear-gradient(to right, #E3E3FF 97.6%, transparent 90%);
+            display: inline-block;
+        }
+    }
+}
+.solutions {
+    padding: 150px 0px;
+    background-color: var(--primary-color-500);
+    &__title {
+        margin-bottom: 80px;
+    }
+    &__card-title {
+        margin-bottom: 32px;
+        font-size: 2rem;
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 32px;
+        border-top: 1px solid #000000;
+        box-shadow: 4px 6px 0px 0px #000000;
+        background-color: white;
+        border-radius: 8px;
+        height: 700px;
+    }
+    &__cards {
+        display: flex;
+        gap: 32px;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    &__button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__button-number {
+        font-size: 4.5rem;
+    }
+    &__card:nth-child(2) {
+        width: 15%;
+        .solutions__card-text {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .primary-button {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .solutions__card-title {
+            white-space: nowrap;
+            transform: rotate(-90deg);
+            position: absolute;
+            right: -3px;
+            top: 72px;
+        }
+    }
+    &__card:nth-child(3) {
+        width: 15%;
+        .solutions__card-text {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .primary-button {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .solutions__card-title {
+            white-space: nowrap;
+            transform: rotate(-90deg);
+            position: absolute;
+            top: 145px;
+            right: -77px;
+        }
+    }
+}
