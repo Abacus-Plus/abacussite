@@ -16,12 +16,11 @@
 
 
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (! defined('_S_VERSION')) {
 
 	// Replace the version number of the theme on each release.
 
-	define( '_S_VERSION', '1.0.0' );
-
+	define('_S_VERSION', '1.0.0');
 }
 
 
@@ -40,7 +39,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 
  */
 
-function abacusplus_setup() {
+function abacusplus_setup()
+{
 
 	/*
 
@@ -54,13 +54,13 @@ function abacusplus_setup() {
 
 		*/
 
-	load_theme_textdomain( 'abacusplus', get_template_directory() . '/languages' );
+	load_theme_textdomain('abacusplus', get_template_directory() . '/languages');
 
 
 
 	// Add default posts and comments RSS feed links to head.
 
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 
 
@@ -76,7 +76,7 @@ function abacusplus_setup() {
 
 		*/
 
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 
 
@@ -90,7 +90,7 @@ function abacusplus_setup() {
 
 		*/
 
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
 
 
@@ -100,7 +100,9 @@ function abacusplus_setup() {
 
 		array(
 
-			'menu-1' => esc_html__( 'Primary', 'abacusplus' ),
+			'menu-1' => esc_html__('Primary', 'abacusplus'),
+			'footer'  => esc_html__('Footer Menu'),
+
 
 		)
 
@@ -168,7 +170,7 @@ function abacusplus_setup() {
 
 	// Add theme support for selective refresh for widgets.
 
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support('customize-selective-refresh-widgets');
 
 
 
@@ -199,10 +201,9 @@ function abacusplus_setup() {
 		)
 
 	);
-
 }
 
-add_action( 'after_setup_theme', 'abacusplus_setup' );
+add_action('after_setup_theme', 'abacusplus_setup');
 
 
 
@@ -220,13 +221,13 @@ add_action( 'after_setup_theme', 'abacusplus_setup' );
 
  */
 
-function abacusplus_content_width() {
+function abacusplus_content_width()
+{
 
-	$GLOBALS['content_width'] = apply_filters( 'abacusplus_content_width', 640 );
-
+	$GLOBALS['content_width'] = apply_filters('abacusplus_content_width', 640);
 }
 
-add_action( 'after_setup_theme', 'abacusplus_content_width', 0 );
+add_action('after_setup_theme', 'abacusplus_content_width', 0);
 
 
 
@@ -240,17 +241,18 @@ add_action( 'after_setup_theme', 'abacusplus_content_width', 0 );
 
  */
 
-function abacusplus_widgets_init() {
+function abacusplus_widgets_init()
+{
 
 	register_sidebar(
 
 		array(
 
-			'name'          => esc_html__( 'Sidebar', 'abacusplus' ),
+			'name'          => esc_html__('Sidebar', 'abacusplus'),
 
 			'id'            => 'sidebar-1',
 
-			'description'   => esc_html__( 'Add widgets here.', 'abacusplus' ),
+			'description'   => esc_html__('Add widgets here.', 'abacusplus'),
 
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 
@@ -263,10 +265,9 @@ function abacusplus_widgets_init() {
 		)
 
 	);
-
 }
 
-add_action( 'widgets_init', 'abacusplus_widgets_init' );
+add_action('widgets_init', 'abacusplus_widgets_init');
 
 
 
@@ -281,7 +282,8 @@ $scripts = get_field('scripts', 'option');
 $bootstrap = $scripts['enqueue_bootstrap'];
 $slick_slider = $scripts['enqueue_slicks_slider'];
 
-function abacusplus_scripts() {
+function abacusplus_scripts()
+{
 
 	global $fonts;
 	global $scripts;
@@ -289,34 +291,32 @@ function abacusplus_scripts() {
 	global $slick_slider;
 
 	wp_enqueue_style('abacusplus-google-font', "' . $fonts . '", array(), mt_rand());
-	if($bootstrap == true) {
+	if ($bootstrap == true) {
 		wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
 	}
-	if($slick_slider == true) {
-		wp_enqueue_style( 'slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
-    	wp_enqueue_style( 'slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css' );
+	if ($slick_slider == true) {
+		wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+		wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	}
-	wp_enqueue_style( 'abacusplus-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'abacusplus-style', 'rtl', 'replace' );
+	wp_enqueue_style('abacusplus-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('abacusplus-style', 'rtl', 'replace');
 
-	wp_enqueue_script( 'abacusplus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'abacusplus-main', get_template_directory_uri() . '/js/main.js', array(),  mt_rand(), true );
-	if($bootstrap == true) {
+	wp_enqueue_script('abacusplus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('abacusplus-main', get_template_directory_uri() . '/js/main.js', array(),  mt_rand(), true);
+	if ($bootstrap == true) {
 		wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array(), mt_rand(), false);
 	}
-	if($slick_slider == true) {
-		wp_enqueue_script( 'slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array( 'jquery' ), false, true );
+	if ($slick_slider == true) {
+		wp_enqueue_script('slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), false, true);
 	}
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
 
-		wp_enqueue_script( 'comment-reply' );
-
+		wp_enqueue_script('comment-reply');
 	}
-
 }
 
-add_action( 'wp_enqueue_scripts', 'abacusplus_scripts' );
+add_action('wp_enqueue_scripts', 'abacusplus_scripts');
 
 
 
@@ -366,15 +366,14 @@ require get_template_directory() . '/inc/customizer.php';
 
  */
 
-if ( defined( 'JETPACK__VERSION' ) ) {
+if (defined('JETPACK__VERSION')) {
 
 	require get_template_directory() . '/inc/jetpack.php';
-
 }
 
 
 
-if( function_exists('acf_add_options_page') ) {
+if (function_exists('acf_add_options_page')) {
 
 	acf_add_options_page([
 
@@ -383,42 +382,42 @@ if( function_exists('acf_add_options_page') ) {
 		'position' => 2
 
 	]);
-
 }
 
 
 
-function enqueue_custom_styles() {
+function enqueue_custom_styles()
+{
 
-    wp_enqueue_style('custom-styles', get_stylesheet_directory_uri() . '/sass/starter/acfstyle.scss');
+	wp_enqueue_style('custom-styles', get_stylesheet_directory_uri() . '/sass/starter/acfstyle.scss');
 
 	/* General Tab */
 
 	$bg_type_solid = get_field('solid', 'option');
 
-    /* Font Tab */
+	/* Font Tab */
 
-    $primary_font = get_field('primary_font', 'option');
+	$primary_font = get_field('primary_font', 'option');
 
-    $secondary_font = get_field('secondary_font', 'option');
+	$secondary_font = get_field('secondary_font', 'option');
 
-    $font_sizes = get_field('font_sizes', 'option');
+	$font_sizes = get_field('font_sizes', 'option');
 
-    $h1 = $font_sizes['h1'];
+	$h1 = $font_sizes['h1'];
 
-    $h2 = $font_sizes['h2'];
+	$h2 = $font_sizes['h2'];
 
-    $h3 = $font_sizes['h3'];
+	$h3 = $font_sizes['h3'];
 
-    $h4 = $font_sizes['h4'];
+	$h4 = $font_sizes['h4'];
 
-    $h5 = $font_sizes['h5'];
+	$h5 = $font_sizes['h5'];
 
-    $h6 = $font_sizes['h6'];
+	$h6 = $font_sizes['h6'];
 
-    $paragraph = $font_sizes['paragraph'];
+	$paragraph = $font_sizes['paragraph'];
 
-    $caption = $font_sizes['caption'];
+	$caption = $font_sizes['caption'];
 
 	$h1_line_height = $font_sizes['h1_line_height'];
 
@@ -438,125 +437,132 @@ function enqueue_custom_styles() {
 
 
 
-    /* Buttons Tab */
+	/* Buttons Tab */
 
-    $transition = get_field('transition', 'option');
+	$transition = get_field('transition', 'option');
 
-    $primary_button = get_field('primary_button', 'option');
+	$primary_button = get_field('primary_button', 'option');
 
-    $border_radius_pb = $primary_button['border_radius'];
+	$border_radius_pb = $primary_button['border_radius'];
 
-    $border_style_pb = $primary_button['border_style'];
+	$border_style_pb = $primary_button['border_style'];
 
-    $border_width_pb = $primary_button['border_width'];
+	$border_width_pb = $primary_button['border_width'];
 
-    $secondary_button = get_field('secondary_button', 'option');
+	$secondary_button = get_field('secondary_button', 'option');
 
-    $border_radius_sb = $secondary_button['border_radius'];
+	$border_radius_sb = $secondary_button['border_radius'];
 
-    $border_style_sb = $secondary_button['border_style'];
+	$border_style_sb = $secondary_button['border_style'];
 
-    $border_width_sb = $secondary_button['border_width'];
+	$border_width_sb = $secondary_button['border_width'];
 
-    $ghost_button = get_field('ghost_button', 'option');
+	$ghost_button = get_field('ghost_button', 'option');
 
-    $border_radius_gb = $ghost_button['border_radius'];
+	$border_radius_gb = $ghost_button['border_radius'];
 
-    $border_style_gb = $ghost_button['border_style'];
+	$border_style_gb = $ghost_button['border_style'];
 
-    $border_width_gb = $ghost_button['border_width'];
+	$border_width_gb = $ghost_button['border_width'];
 
-    $small = get_field('small', 'option');
+	$small = get_field('small', 'option');
 
-    $font_size_sm = $small['font_size'];
+	$font_size_sm = $small['font_size'];
 
-    $padding_small = $small['padding'];
+	$padding_small = $small['padding'];
 
-    $medium = get_field('medium', 'option');
+	$medium = get_field('medium', 'option');
 
-    $font_size_md = $medium['font_size'];
+	$font_size_md = $medium['font_size'];
 
-    $padding_medium = $medium['padding'];
+	$padding_medium = $medium['padding'];
 
-    $large = get_field('large', 'option');
+	$large = get_field('large', 'option');
 
-    $font_size_lg = $large['font_size'];
+	$font_size_lg = $large['font_size'];
 
-    $padding_large = $large['padding'];
+	$padding_large = $large['padding'];
 
-    $button_icon = get_field('button_icon', 'option');
+	$button_icon = get_field('button_icon', 'option');
 
-    $icon = $button_icon['icon'];
+	$icon = $button_icon['icon'];
 
 
 
-    /* Colors Tab */
+	/* Colors Tab */
 
-    $primary_color = get_field('primary_color', 'option');
+	$background_colors = get_field('background_colors', 'option');
+	$green = $background_colors['green'];
+	$blue = $background_colors['ocean_blue'];
+	$purple = $background_colors['purple'];
+	$orange = $background_colors['orange'];
 
-		$select_color_primary = $primary_color['select_color'];
 
-		$shades_primary = $primary_color['shades'];
+	$primary_color = get_field('primary_color', 'option');
 
-			$primary_100 = $shades_primary['shade_100'];
+	$select_color_primary = $primary_color['select_color'];
 
-			$primary_200 = $shades_primary['shade_200'];
+	$shades_primary = $primary_color['shades'];
 
-			$primary_300 = $shades_primary['shade_300'];
+	$primary_100 = $shades_primary['shade_100'];
 
-			$primary_400 = $shades_primary['shade_400'];
+	$primary_200 = $shades_primary['shade_200'];
 
-			$primary_600 = $shades_primary['shade_600'];
+	$primary_300 = $shades_primary['shade_300'];
 
-			$primary_700 = $shades_primary['shade_700'];
+	$primary_400 = $shades_primary['shade_400'];
 
-			$primary_800 = $shades_primary['shade_800'];
+	$primary_600 = $shades_primary['shade_600'];
 
-			$primary_900 = $shades_primary['shade_900'];
+	$primary_700 = $shades_primary['shade_700'];
 
-    $secondary_color = get_field('secondary_color', 'option');
+	$primary_800 = $shades_primary['shade_800'];
 
-		$select_color_secondary = $secondary_color['select_color'];
+	$primary_900 = $shades_primary['shade_900'];
 
-		$shades_secondary = $secondary_color['shades'];
+	$secondary_color = get_field('secondary_color', 'option');
 
-			$secondary_100 = $shades_secondary['shade_100'];
+	$select_color_secondary = $secondary_color['select_color'];
 
-			$secondary_200 = $shades_secondary['shade_200'];
+	$shades_secondary = $secondary_color['shades'];
 
-			$secondary_300 = $shades_secondary['shade_300'];
+	$secondary_100 = $shades_secondary['shade_100'];
 
-			$secondary_400 = $shades_secondary['shade_400'];
+	$secondary_200 = $shades_secondary['shade_200'];
 
-			$secondary_600 = $shades_secondary['shade_600'];
+	$secondary_300 = $shades_secondary['shade_300'];
 
-			$secondary_700 = $shades_secondary['shade_700'];
+	$secondary_400 = $shades_secondary['shade_400'];
 
-			$secondary_800 = $shades_secondary['shade_800'];
+	$secondary_600 = $shades_secondary['shade_600'];
 
-			$secondary_900 = $shades_secondary['shade_900'];
+	$secondary_700 = $shades_secondary['shade_700'];
+
+	$secondary_800 = $shades_secondary['shade_800'];
+
+	$secondary_900 = $shades_secondary['shade_900'];
 
 	$grey = get_field('grey', 'option');
 
-		$select_color_grey = $grey['select_color'];
+	$select_color_grey = $grey['select_color'];
 
-		$shades_grey = $grey['shades'];
+	$shades_grey = $grey['shades'];
 
-			$grey_100 = $shades_grey['shade_100'];
+	$grey_100 = $shades_grey['shade_100'];
 
-			$grey_200 = $shades_grey['shade_200'];
+	$grey_200 = $shades_grey['shade_200'];
 
-			$grey_300 = $shades_grey['shade_300'];
+	$grey_300 = $shades_grey['shade_300'];
 
-			$grey_400 = $shades_grey['shade_400'];
+	$grey_400 = $shades_grey['shade_400'];
 
-			$grey_600 = $shades_grey['shade_600'];
+	$grey_600 = $shades_grey['shade_600'];
 
-			$grey_700 = $shades_grey['shade_700'];
+	$grey_700 = $shades_grey['shade_700'];
 
-			$grey_800 = $shades_grey['shade_800'];
+	$grey_800 = $shades_grey['shade_800'];
 
-			$grey_900 = $shades_grey['shade_900'];
+	$grey_900 = $shades_grey['shade_900'];
 
 
 
@@ -564,21 +570,21 @@ function enqueue_custom_styles() {
 
 	$input_fields_style = get_field('input_fields_style', 'option');
 
-		$fields_border_radius = $input_fields_style['border_radius'];
+	$fields_border_radius = $input_fields_style['border_radius'];
 
-		$fields_padding = $input_fields_style['padding'];
+	$fields_padding = $input_fields_style['padding'];
 
-		$fields_font_size = $input_fields_style['font_size'];
+	$fields_font_size = $input_fields_style['font_size'];
 
-		$fields_border_width = $input_fields_style['border_width'];
+	$fields_border_width = $input_fields_style['border_width'];
 
-		$fields_border_style = $input_fields_style['border_style'];
+	$fields_border_style = $input_fields_style['border_style'];
 
 
 
-    // Pass the values as CSS variables to the SCSS file
+	// Pass the values as CSS variables to the SCSS file
 
-    wp_add_inline_style('custom-styles', "
+	wp_add_inline_style('custom-styles', "
 
         :root {
 
@@ -718,6 +724,12 @@ function enqueue_custom_styles() {
 
 			--fields-padding: {$fields_padding};
 
+			--blue-background: {$blue};
+			--purple-background: {$purple};
+			--orange-background: {$orange};
+			--green-background: {$green};
+
+
         }
 
     ");
@@ -725,7 +737,8 @@ function enqueue_custom_styles() {
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
-function abacus_acf_init_block_types() {
+function abacus_acf_init_block_types()
+{
 	if (function_exists('acf_register_block_type')) {
 		acf_register_block_type(array(
 			'name' => 'before-after-block',
@@ -744,12 +757,12 @@ function abacus_acf_init_block_types() {
 			'category' => 'default',
 			'icon' => 'info',
 		));
-  	}
+	}
 }
 
 add_action('init', 'abacus_acf_init_block_types');
 
-add_action( 'admin_enqueue_scripts',  function() {
-    $css_version = filemtime( get_stylesheet_directory() . '/admin.css' );
-    wp_enqueue_style( 'abacusplus-admin-style', get_stylesheet_directory_uri() . '/admin.css', null, $css_version );
-} );
+add_action('admin_enqueue_scripts',  function () {
+	$css_version = filemtime(get_stylesheet_directory() . '/admin.css');
+	wp_enqueue_style('abacusplus-admin-style', get_stylesheet_directory_uri() . '/admin.css', null, $css_version);
+});
