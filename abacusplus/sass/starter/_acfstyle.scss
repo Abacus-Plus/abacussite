@@ -456,10 +456,11 @@ h6 {
 	color: black;
 	transition: var(--transition);
 	letter-spacing: 0.01em;
+	box-shadow: 2px 2px 0px 0px #000000;
 }
 
 .primary-button:hover {
-	box-shadow: 2px 2px 0px 0px #000000;
+	box-shadow: 6px 7px 0px 0px #000000;
 }
 
 .secondary-button {
@@ -477,9 +478,10 @@ h6 {
 	font-weight: 700;
 	font-family: var(--primary-font);
 	transition: var(--transition);
+	box-shadow: 2px 2px 0px 0px #000000;
 
 	&:hover {
-		box-shadow: 2px 2px 0px 0px #000000;
+		box-shadow: 6px 7px 0px 0px #000000;
 	}
 }
 
