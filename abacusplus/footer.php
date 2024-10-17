@@ -14,7 +14,9 @@ $footer = get_field('footer', 'options');
 
 ?>
 
-<footer class="footer">
+<section class="footer">
+
+    <img class="footer__pattern" src="/wp-content/uploads/2024/10/Layer_1-2.svg" alt="pattern">
     <div class="container">
 
         <div class="footer__heading">
@@ -29,7 +31,7 @@ $footer = get_field('footer', 'options');
                         array(
                             'theme_location' => 'footer',
                             'menu_id'        => 'footer_menu',
-                            'menu_class'     => 'footer__menu',
+                            'menu_class'     => 'footer__menu w-500',
                         )
                     );
                     ?>
@@ -56,7 +58,7 @@ $footer = get_field('footer', 'options');
                 <div class="footer__socials">
                     <?php foreach ($footer['useful_links'] as $social) : ?>
                         <a href="<?php echo $social['link']; ?>" target="_blank">
-                            <img src="<?php echo $social['banner']['url']; ?>" alt="<?php echo $social['banner']['alt']; ?>">
+                            <img src="<?php echo $social['banner']['url']; ?>" alt="<?php echo $social['banner']['alt']; ?>" class="social-media-icon">
                         </a>
                     <?php endforeach; ?>
                 </div>
@@ -65,7 +67,8 @@ $footer = get_field('footer', 'options');
 
         <div class="footer__copyright">
             <p class="w-400 color-is-black"><?php echo $footer['copyright']; ?></p>
-            <a href="/" class="w-500 color-is-black">Privacy policy</a>
+            <a href="<?php echo $footer['custom_link']['link'] ?>" class="w-500 color-is-black"><?php echo $footer['custom_link']['text'] ?></a>
+            <button class="footer__button secondary-button icon-right" id="backToTop">Back to top</button>
         </div>
 
 

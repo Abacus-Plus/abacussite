@@ -84,9 +84,7 @@ get_header();
 
                     </div>
                     <div class="projects__images-wrapper">
-
-                        <?php foreach ($project['choose_projects'] as $related_project_id):
-                        ?>
+                        <?php foreach ($project['choose_projects'] as $related_project_id): ?>
                             <?php
                             $background_select = get_field('background_select', $related_project_id);
                             $background_colors = get_field('background_colors', 'option');
@@ -94,12 +92,26 @@ get_header();
                             $thumbnail_id = get_post_thumbnail_id($related_project->ID);
                             $thumbnail_url = wp_get_attachment_url($thumbnail_id);
                             $background_color = $background_colors[$background_select];
+                            $hover_image = get_field('hover_image', $related_project->ID);
+
+                            // Fetch the tags (taxonomy terms) for this project
+                            $tags = get_the_terms($related_project->ID, 'post_tag');
                             ?>
-                            <div class="projects__image-item" style="background-image: url('<?php echo $thumbnail_url; ?>'); background-color: <?php echo $background_color; ?>">
+                            <div class="projects__image-item" data-hover-image="<?php echo esc_url($hover_image); ?>"
+                                style=" background-image: url('<?php echo $thumbnail_url; ?>'); background-color: <?php echo $background_color; ?>">
                                 <h5 class="projects__image-title color-is-black w-700"><?php echo get_the_title($related_project->ID); ?></h5>
+
+                                <div class="projects__tags">
+                                    <?php if ($tags && !is_wp_error($tags)): ?>
+                                        <?php foreach ($tags as $tag): ?>
+                                            <span class="projects__tag"><?php echo esc_html($tag->name); ?></span>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
+
                 </div>
             <?php endforeach; ?>
         </div>
@@ -212,6 +224,7 @@ get_header();
         </div>
 
     </div>
+</section>
 
 
-    <?php get_footer(); ?>
+<?php get_footer(); ?>

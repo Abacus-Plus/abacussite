@@ -99,6 +99,8 @@
         background-color: white;
         border-radius: 8px;
         height: 700px;
+
+
     }
 
     &__cards {
@@ -209,7 +211,57 @@
         height: 560px;
         background-position: center;
         background-position-y: -480px;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: 4px 4px 0px 2px #000000;
+            transition: all 0.5s ease-in-out;
+        }
+
     }
+
+
+    &__tags {
+        border-radius: 8px;
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+        right: 32px;
+        text-align: center;
+        background-color: #171819B2;
+        color: white;
+        padding: 10px;
+        max-width: 363px;
+        display: none;
+        font-family: var(--primary-font);
+    }
+
+    &__tag {
+        font-weight: 500;
+
+        &::after {
+            content: '';
+            background: url('/wp-content/uploads/2024/10/Vector.svg');
+            background-repeat: no-repeat;
+            width: 11px;
+            height: 13px;
+            display: inline-block;
+            margin-left: 6px;
+            margin-right: 4px;
+
+
+
+        }
+    }
+
+
+
+    .projects__image-item:hover .projects__tags {
+        display: block;
+        /* Show on hover */
+    }
+
 
     &__image-item:nth-child(2) {
         margin-top: 70px;
@@ -267,16 +319,31 @@
         justify-content: space-between;
         border-bottom: 2px solid black;
         transition: padding-right 0.5s ease-in-out;
+
+    }
+
+    .faq__question-wrapper.active {
+        padding-right: 12px;
+        background-color: #FFC093;
+        /* Active background color */
+
+        .faq__question {
+            padding-left: 35px;
+        }
+
+
+    }
+
+    .faq__question-wrapper:has(.faq__answer.show) {
+        background-color: #FFC093;
+        padding-right: 12px;
+        padding-left: 35px;
     }
 
     &__question-wrapper:hover {
         padding-right: 12px;
     }
 
-    &__question-wrapper:focus {
-        padding-right: 12px;
-        background-color: #FFC093;
-    }
 
 
 
@@ -399,7 +466,7 @@
     }
 
     .orangeword {
-        background: linear-gradient(to right, var(--primary-color-500) 96.6%, transparent 90%);
+        background: linear-gradient(to right, #FF8B37 93%, transparent 90%);
         display: inline-block;
     }
 
@@ -413,6 +480,13 @@
         gap: 60px;
         align-items: flex-end;
         max-width: 930px;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            box-shadow: 5px 50px 0px 0px #000000;
+            transform: rotate(3deg);
+            transition: all 0.5s ease-in-out;
+        }
     }
 
 
@@ -480,4 +554,106 @@
         }
     }
 
+}
+
+.footer {
+    position: relative;
+    padding: 150px 0px 50px 0px;
+
+    &__pattern {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .icon-right::after {
+        transform: rotate(270deg);
+        margin-left: 10px;
+    }
+
+    &__heading {
+        margin-bottom: 90px;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 90px;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        padding-left: 0;
+        gap: 1rem;
+        list-style: none;
+        margin-top: 2rem;
+
+        a {
+            color: black;
+            font-family: var(--primary-font);
+            font-weight: 500;
+            font-size: 1.125rem;
+
+            &:hover {
+                color: var(--primary-color-500);
+                text-decoration: underline;
+            }
+        }
+
+
+
+
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+
+    }
+
+    &__contact-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        a,
+        p {
+            &:hover {
+                color: var(--primary-color-500);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+
+
+        .social-media-icon:hover {
+            filter: invert(60%) sepia(23%) saturate(5159%) hue-rotate(328deg) brightness(101%) contrast(99%);
+        }
+
+    }
+
+    &__contact-text {
+
+        font-size: 1.125rem;
+    }
+
+    &__copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .orangeword {
+        background: linear-gradient(to right, var(--primary-color-500) 92.6%, transparent 90%);
+        display: inline-block;
+    }
 }
