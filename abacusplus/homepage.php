@@ -14,7 +14,7 @@ get_header();
     <div class="container">
         <div class="hero__wrapper">
             <div class="hero__content">
-                <h1 class="hero__title w-700 color-is-black"><?php echo $hero_section['heading']; ?></h1>
+                <h1 class="hero__title w-700 color-is-black hm-1"><?php echo $hero_section['heading']; ?></h1>
                 <p class="hero__text w-400 color-is-black p-big"><?php echo $hero_section['description']; ?></p>
                 <div class="hero__buttons">
                     <a href="<?php echo $hero_section['first_button']['url']; ?>" class="primary-button medium"><?php echo $hero_section['first_button']['title']; ?></a>
@@ -38,13 +38,13 @@ get_header();
 <section class="plans">
     <div class="container">
         <p class="caption w-500 color-is-black"><?php echo $plans['tagline']; ?></p>
-        <h2 class="plans__highlighted w-700 color-is-black"><?php echo $plans['punchline']; ?></h2>
+        <h2 class="plans__highlighted w-700 color-is-black hm-2"><?php echo $plans['punchline']; ?></h2>
     </div>
 </section>
 <section class="solutions">
     <div class="container">
         <p class="caption w-400 color-is-black"><?php echo $solutions['tagline']; ?></p>
-        <h2 class="solutions__title w-700 color-is-black"><?php echo $solutions['heading']; ?></h2>
+        <h2 class="solutions__title w-700 color-is-black hm-2"><?php echo $solutions['heading']; ?></h2>
         <div class="solutions__cards">
             <?php
             $br = 0;
@@ -53,7 +53,7 @@ get_header();
                 $br++; ?>
                 <div class="solutions__card">
                     <div class="solutions__content">
-                        <h3 class="solutions__card-title w-700 color-is-black"><?php echo $solution->post_title; ?></h3>
+                        <h3 class="solutions__card-title w-700 color-is-black hm-3"><?php echo $solution->post_title; ?></h3>
                         <p class="solutions__card-text w-500 color-is-black p-big">
                             <?php
                             echo str_replace(array('<p>', '</p>'), '', $solution->post_content);
@@ -73,12 +73,12 @@ get_header();
 <section class="projects">
     <div class="container">
         <p class="caption w-400 color-is-black"><?php echo esc_html($projects['tagline']); ?></p>
-        <h2 class="projects__title w-700 color-is-black"><?php echo esc_html($projects['title']); ?></h2>
+        <h2 class="projects__title w-700 color-is-black hm-2"><?php echo esc_html($projects['title']); ?></h2>
         <div class="projects__cards">
             <?php foreach ($projects['projects_repeater'] as $project) : ?>
                 <div class="projects__wrapper">
                     <div class="projects__content">
-                        <h3 class="projects__card-title w-800 color-is-black"><?php echo $project['heading']; ?></h3>
+                        <h3 class="projects__card-title w-800 color-is-black hm-3"><?php echo $project['heading']; ?></h3>
                         <p class="projects__description w-400 color-is-black p-big"><?php echo $project['description']; ?></p>
                         <a href="<?php echo $project['button']['url']; ?>" class="primary-button medium icon-right"><?php echo $project['button']['title']; ?></a>
 
@@ -94,7 +94,6 @@ get_header();
                             $background_color = $background_colors[$background_select];
                             $hover_image = get_field('hover_image', $related_project->ID);
 
-                            // Fetch the tags (taxonomy terms) for this project
                             $tags = get_the_terms($related_project->ID, 'post_tag');
                             ?>
                             <div class="projects__image-item" data-hover-image="<?php echo esc_url($hover_image); ?>"
@@ -123,7 +122,7 @@ get_header();
     <div class="container">
         <p class="caption w-400 color-is-black"><?php echo $faq['tagline']; ?></p>
         <div class="faq__titlebutton">
-            <h2 class="faq__title w-700 color-is-black"><?php echo $faq['heading']; ?></h2>
+            <h2 class="faq__title w-700 color-is-black hm-2"><?php echo $faq['heading']; ?></h2>
             <a href="<?php echo $faq['button']['url']; ?>" class="secondary-button medium"><?php echo $faq['button']['title']; ?></a>
         </div>
         <div class="faq__wrapper">
@@ -147,6 +146,27 @@ get_header();
 
         </div>
 
+        <div class="faq__wrapper_mobile">
+            <div class="accordion" id="faqAccordion">
+                <?php foreach ($faq['faqs'] as $index => $faq_item) : ?>
+                    <div class="accordion-item faq__item">
+                        <div class="faq__question-wrapper accordion-header" id="heading-<?php echo $index; ?>">
+                            <h5 w-700 class="faq__question w-700 color-is-black" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse-<?php echo $index; ?>">
+                                <?php echo $faq_item['question']; ?>
+                            </h5>
+                            <img src="/wp-content/uploads/2024/10/Icons-3.svg" />
+                        </div>
+                        <div id="collapse-<?php echo $index; ?>" class="accordion-collapse collapse <?php echo $index === 0 ? 'show' : ''; ?>" aria-labelledby="heading-<?php echo $index; ?>" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p class="w-400 color-is-black p-big"><?php echo $faq_item['answer']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+
 
 
     </div>
@@ -157,25 +177,23 @@ get_header();
     <div class="container">
         <div class="testimonials__title">
             <p class="caption w-400 color-is-black"><?php echo $testimonials['tagline']; ?></p>
-            <h2 class="testimonials__title w-700 color-is-black"><?php echo $testimonials['heading']; ?></h2>
+            <h2 class="testimonials__title w-700 color-is-black hm-2"><?php echo $testimonials['heading']; ?></h2>
         </div>
         <div class="testimonials__slider">
             <?php foreach ($testimonials['choose_testimonials'] as $testimonial) : ?>
                 <?php
-                // Retrieve the testimonial post ACF fields
-                $testimonial_id = $testimonial->ID; // Assuming this is the related post object
-                $name = get_field('name', $testimonial_id); // ACF field 'name'
-                $position = get_field('position', $testimonial_id); // ACF field 'position'
-                $testimonial_content = get_field('testimonial_content', $testimonial_id); // ACF field 'testimonial_content'
-                $client_image = get_field('client_image', $testimonial_id); // ACF field 'client_image'
-                $choose_partner = get_field('choose_partner', $testimonial_id); // Relationship field 'choose_partner'
+                $testimonial_id = $testimonial->ID;
+                $name = get_field('name', $testimonial_id);
+                $position = get_field('position', $testimonial_id);
+                $testimonial_content = get_field('testimonial_content', $testimonial_id);
+                $client_image = get_field('client_image', $testimonial_id);
+                $choose_partner = get_field('choose_partner', $testimonial_id);
                 ?>
 
                 <div class="testimonials__card">
                     <div class="testimonials__logos-wrapper">
                         <?php foreach ($choose_partner as $partner): ?>
                             <?php
-                            // Get the featured image of the related partner post
                             $partner_image = get_the_post_thumbnail_url($partner->ID, 'full');
                             ?>
                             <?php if ($partner_image): ?>
@@ -211,12 +229,12 @@ get_header();
 <section class="cards">
     <div class="container">
         <p class="caption w-400 color-is-black"><?php echo $cards['tagline']; ?></p>
-        <h2 class="cards__title w-700 color-is-black"><?php echo $cards['heading']; ?></h2>
+        <h2 class="cards__title w-700 color-is-black hm-2"><?php echo $cards['heading']; ?></h2>
         <div class="cards__wrapper">
             <?php foreach ($cards['cards_repeater'] as $card): ?>
                 <div class="cards__insidewrapper">
                     <div class="cards__content">
-                        <h3 class="cards__card-title w-700 color-is-black"><?php echo $card['text']; ?></h3>
+                        <h3 class="cards__card-title w-700 color-is-black hm-3"><?php echo $card['text']; ?></h3>
                         <a href="<?php echo $card['button']['url']; ?>" class="primary-button medium icon-right"><?php echo $card['button']['title']; ?></a>
                     </div>
                 </div>
