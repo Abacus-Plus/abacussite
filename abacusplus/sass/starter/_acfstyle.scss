@@ -12,6 +12,10 @@ body {
 	background-color: var(--bg-type-solid);
 }
 
+html {
+	font-size: 14px;
+}
+
 nav {
 
 	ul {
@@ -257,10 +261,12 @@ h6 {
 @media only screen and (min-width: 600px) and (max-width: 1200px) and (orientation: portrait) {
 	.hm-1 {
 		font-size: 3rem;
+		line-height: 1.1;
 	}
 
 	.hm-2 {
 		font-size: 2.5rem;
+		line-height: 1.1;
 	}
 
 	.hm-3 {
@@ -283,14 +289,17 @@ h6 {
 @media only screen and (max-width: 599px) {
 	.hm-1 {
 		font-size: 3rem;
+		line-height: 1.3;
 	}
 
 	.hm-2 {
 		font-size: 2.5rem;
+		line-height: 1.3;
 	}
 
 	.hm-3 {
 		font-size: 2rem;
+		line-height: 1.3;
 	}
 
 	.hm-4 {
@@ -457,6 +466,11 @@ h6 {
 	transition: var(--transition);
 	letter-spacing: 0.01em;
 	box-shadow: 2px 2px 0px 0px #000000;
+
+	@media only screen and (max-width: 599px) {
+		font-size: 1rem;
+		white-space: nowrap;
+	}
 }
 
 .primary-button:hover {
@@ -479,6 +493,11 @@ h6 {
 	font-family: var(--primary-font);
 	transition: var(--transition);
 	box-shadow: 2px 2px 0px 0px #000000;
+
+	@media only screen and (max-width: 599px) {
+		font-size: 1rem;
+		white-space: nowrap;
+	}
 
 	&:hover {
 		box-shadow: 6px 7px 0px 0px #000000;

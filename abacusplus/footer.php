@@ -20,7 +20,7 @@ $footer = get_field('footer', 'options');
     <div class="container">
 
         <div class="footer__heading">
-            <h2 class="footer__title w-700 color-is-black"><?php echo $footer['heading']; ?></h2>
+            <h2 class="footer__title w-700 color-is-black hm-2"><?php echo $footer['heading']; ?></h2>
         </div>
         <div class="footer__wrapper">
             <div class="footer__left">
@@ -67,8 +67,17 @@ $footer = get_field('footer', 'options');
 
         <div class="footer__copyright">
             <p class="w-400 color-is-black"><?php echo $footer['copyright']; ?></p>
-            <a href="<?php echo $footer['custom_link']['link'] ?>" class="w-500 color-is-black"><?php echo $footer['custom_link']['text'] ?></a>
+            <a href="<?php echo $footer['custom_link']['link'] ?>" class="privacy w-500 color-is-black"><?php echo $footer['custom_link']['text'] ?></a>
             <button class="footer__button secondary-button icon-right" id="backToTop">Back to top</button>
+        </div>
+
+        <div class="footer__mobile">
+            <div class="footer__copyright-2">
+                <a href="<?php echo $footer['custom_link']['link'] ?>" class="privacy w-500 color-is-black"><?php echo $footer['custom_link']['text'] ?></a>
+                <button class="footer__button secondary-button icon-right" id="backToTop">Back to top</button>
+            </div>
+            <p class="w-400 color-is-black"><?php echo $footer['copyright']; ?></p>
+
         </div>
 
 
