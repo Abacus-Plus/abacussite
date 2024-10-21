@@ -1730,12 +1730,97 @@ h6 {
 	background-color: white;
 	border-radius: 8px;
 	height: 700px;
+	width: 15%;
+	transition: var(--transition);
 }
 
 @media (max-width: 768px) {
 	.solutions__card {
 		height: 500px;
 	}
+}
+
+.solutions__card .solutions__card-text {
+	opacity: 0;
+}
+
+@media (max-width: 768px) {
+	.solutions__card .solutions__card-text {
+		opacity: 1;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.solutions__card .primary-button {
+	opacity: 0;
+	transition: opacity .1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+	.solutions__card .primary-button {
+		opacity: 1;
+		width: auto;
+		height: auto;
+	}
+}
+
+.solutions__card .solutions__card-title {
+	white-space: nowrap;
+	transform: rotate(-90deg);
+	position: relative;
+	right: 55px;
+	top: 88px;
+	transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+	.solutions__card .solutions__card-title {
+		transform: rotate(0deg);
+		position: relative;
+		top: 0;
+		right: 0;
+	}
+}
+
+.solutions__card:hover {
+	flex: 1;
+}
+
+.solutions__card:hover .solutions__card-title {
+	transform: rotate(0deg);
+	top: 0;
+	right: 0;
+}
+
+.solutions__card:hover .solutions__card-text {
+	transition: all .3s ease-in-out .3s;
+	opacity: 1;
+}
+
+.solutions__card:hover .primary-button {
+	opacity: 1;
+	transition: opacity .3s ease-in-out .3s;
+}
+
+.solutions .hover {
+	flex: 1;
+}
+
+.solutions .hover .solutions__card-title {
+	transform: rotate(0deg);
+	top: 0;
+	right: 0;
+}
+
+.solutions .hover .solutions__card-text {
+	transition: all .3s ease-in-out .3s;
+	opacity: 1;
+}
+
+.solutions .hover .primary-button {
+	opacity: 1;
+	transition: opacity .3s ease-in-out .3s;
 }
 
 .solutions__cards {
@@ -1765,63 +1850,10 @@ h6 {
 	font-size: 4.5rem;
 }
 
-.solutions__card:nth-child(2) {
-	width: 15%;
-}
-
 @media (max-width: 768px) {
 	.solutions__card:nth-child(2) {
 		width: 100%;
 	}
-}
-
-.solutions__card:nth-child(2) .solutions__card-text {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-@media (max-width: 768px) {
-	.solutions__card:nth-child(2) .solutions__card-text {
-		opacity: 1;
-		width: 100%;
-		height: auto;
-	}
-}
-
-.solutions__card:nth-child(2) .primary-button {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-@media (max-width: 768px) {
-	.solutions__card:nth-child(2) .primary-button {
-		opacity: 1;
-		width: auto;
-		height: auto;
-	}
-}
-
-.solutions__card:nth-child(2) .solutions__card-title {
-	white-space: nowrap;
-	transform: rotate(-90deg);
-	position: absolute;
-	right: 25px;
-	top: 72px;
-}
-
-@media (max-width: 768px) {
-	.solutions__card:nth-child(2) .solutions__card-title {
-		transform: rotate(0deg);
-		position: relative;
-		top: 0;
-		right: 0;
-	}
-}
-
-.solutions__card:nth-child(3) {
-	width: 15%;
 }
 
 @media (max-width: 768px) {
@@ -2108,6 +2140,11 @@ h6 {
 	background-size: cover;
 }
 
+.testimonials .slick-track {
+	display: flex;
+	gap: 32px;
+}
+
 @media (max-width: 768px) {
 	.testimonials {
 		padding: 100px 0px;
@@ -2166,7 +2203,24 @@ h6 {
 	border-radius: 8px;
 	border: 2px solid black;
 	box-shadow: 2px 2px 0px 0px #000000;
-	margin-right: 20px;
+	margin: 15px 0;
+	transition: transform .3s ease-in-out;
+}
+
+.testimonials .first {
+	transform: rotate(-4deg);
+}
+
+.testimonials .second {
+	transform: rotate(-1deg);
+}
+
+.testimonials .third {
+	transform: rotate(2deg);
+}
+
+.testimonials__slider:hover .first, .testimonials__slider:hover .second, .testimonials__slider:hover .third {
+	transform: rotate(0deg) !important;
 }
 
 .testimonials__arrows {

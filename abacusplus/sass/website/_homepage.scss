@@ -156,9 +156,89 @@
         background-color: white;
         border-radius: 8px;
         height: 700px;
+        width: 15%;
+        transition: var(--transition);
 
         @media (max-width: 768px) {
             height: 500px;
+        }
+
+        .solutions__card-text {
+            opacity: 0;
+
+            @media (max-width: 768px) {
+                opacity: 1;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .primary-button {
+            opacity: 0;
+            transition: opacity .1s ease-in-out;
+
+            @media (max-width: 768px) {
+                opacity: 1;
+                width: auto;
+                height: auto;
+            }
+        }
+
+        .solutions__card-title {
+            white-space: nowrap;
+            transform: rotate(-90deg);
+            position: relative;
+            right: 55px;
+            top: 88px;
+            transition: var(--transition);
+
+            @media (max-width: 768px) {
+                transform: rotate(0deg);
+                position: relative;
+                top: 0;
+                right: 0;
+
+            }
+        }
+
+        &:hover {
+            flex: 1;
+
+            .solutions__card-title {
+                transform: rotate(0deg);
+                top: 0;
+                right: 0;
+            }
+
+            .solutions__card-text {
+                transition: all .3s ease-in-out .3s;
+                opacity: 1;
+            }
+
+            .primary-button {
+                opacity: 1;
+                transition: opacity .3s ease-in-out .3s;
+            }
+        }
+    }
+
+    .hover {
+        flex: 1;
+
+        .solutions__card-title {
+            transform: rotate(0deg);
+            top: 0;
+            right: 0;
+        }
+
+        .solutions__card-text {
+            transition: all .3s ease-in-out .3s;
+            opacity: 1;
+        }
+
+        .primary-button {
+            opacity: 1;
+            transition: opacity .3s ease-in-out .3s;
         }
     }
 
@@ -188,55 +268,13 @@
     }
 
     &__card:nth-child(2) {
-        width: 15%;
 
         @media (max-width: 768px) {
             width: 100%;
         }
-
-        .solutions__card-text {
-            opacity: 0;
-            width: 0;
-            height: 0;
-
-            @media (max-width: 768px) {
-                opacity: 1;
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        .primary-button {
-            opacity: 0;
-            width: 0;
-            height: 0;
-
-            @media (max-width: 768px) {
-                opacity: 1;
-                width: auto;
-                height: auto;
-            }
-        }
-
-        .solutions__card-title {
-            white-space: nowrap;
-            transform: rotate(-90deg);
-            position: absolute;
-            right: 25px;
-            top: 72px;
-
-            @media (max-width: 768px) {
-                transform: rotate(0deg);
-                position: relative;
-                top: 0;
-                right: 0;
-
-            }
-        }
     }
 
     &__card:nth-child(3) {
-        width: 15%;
 
         @media (max-width: 768px) {
             width: 100%;
@@ -520,6 +558,11 @@
     background: url(/wp-content/uploads/2024/10/Bg-Grid.svg);
     background-size: cover;
 
+    .slick-track {
+        display: flex;
+        gap: 32px;
+    }
+
     @media (max-width: 768px) {
         padding: 100px 0px;
     }
@@ -576,7 +619,30 @@
         border-radius: 8px;
         border: 2px solid black;
         box-shadow: 2px 2px 0px 0px #000000;
-        margin-right: 20px;
+        margin: 15px 0;
+        transition: transform .3s ease-in-out;
+    }
+
+    .first {
+        transform: rotate(-4deg);
+    }
+
+    .second {
+        transform: rotate(-1deg);
+    }
+
+    .third {
+        transform: rotate(2deg);
+    }
+
+    &__slider {
+
+        &:hover {
+
+            .first, .second, .third {
+                transform: rotate(0deg)!important;
+            }
+        }
     }
 
     &__arrows {

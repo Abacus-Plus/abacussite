@@ -114,3 +114,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.solutions__card');
+    const firstCard = cards[0];
+
+    firstCard.classList.add('hover');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            firstCard.classList.remove('hover');
+        });
+
+        card.addEventListener('mouseleave', function () {
+            if (!document.querySelector('.solutions__card:hover')) {
+                firstCard.classList.add('hover');
+            }
+        });
+    });
+});

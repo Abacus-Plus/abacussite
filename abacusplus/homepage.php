@@ -188,9 +188,18 @@ get_header();
                 $testimonial_content = get_field('testimonial_content', $testimonial_id);
                 $client_image = get_field('client_image', $testimonial_id);
                 $choose_partner = get_field('choose_partner', $testimonial_id);
+                
+                $class = '';
+                if ($index % 3 == 0) {
+                    $class = 'first';
+                } elseif ($index % 3 == 1) {
+                    $class = 'second';
+                } elseif ($index % 3 == 2) {
+                    $class = 'third';
+                }
                 ?>
 
-                <div class="testimonials__card">
+                <div class="testimonials__card <?php echo $class; ?>">
                     <div class="testimonials__logos-wrapper">
                         <?php foreach ($choose_partner as $partner): ?>
                             <?php
