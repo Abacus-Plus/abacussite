@@ -1775,7 +1775,7 @@ h6 {
 	transform: rotate(-90deg);
 	position: relative;
 	right: 55px;
-	top: 88px;
+	top: 100px;
 	transition: var(--transition);
 }
 
@@ -1812,6 +1812,13 @@ h6 {
 	flex: 1;
 }
 
+@media (max-width: 768px) {
+	.solutions .hover {
+		flex: unset;
+		width: 100%;
+	}
+}
+
 .solutions .hover .solutions__card-title {
 	transform: rotate(0deg);
 	top: 0 !important;
@@ -1840,7 +1847,7 @@ h6 {
 }
 
 .solutions__card:nth-child(1) .solutions__card-title {
-	top: 198px;
+	top: 229px;
 }
 
 .solutions__content {
@@ -1888,7 +1895,7 @@ h6 {
 }
 
 .solutions__card:nth-child(3) .solutions__card-title {
-	top: 211px;
+	top: 253px;
 }
 
 @media (max-width: 768px) {
