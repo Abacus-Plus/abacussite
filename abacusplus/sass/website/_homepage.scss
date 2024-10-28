@@ -196,7 +196,7 @@
             transform: rotate(-90deg);
             position: relative;
             right: 55px;
-            top: 88px;
+            top: 100px;
             transition: var(--transition);
 
             @media (max-width: 768px) {
@@ -232,6 +232,11 @@
     .hover {
         flex: 1;
 
+        @media (max-width: 768px) {
+            flex: unset;
+            width: 100%;
+        }
+
         .solutions__card-title {
             transform: rotate(0deg);
             top: 0 !important;
@@ -260,7 +265,7 @@
 
     &__card:nth-child(1) {
         .solutions__card-title {
-            top: 198px;
+            top: 229px;
         }
     }
 
@@ -313,7 +318,7 @@
         }
 
         .solutions__card-title {
-            top: 211px;
+            top: 253px;
 
 
             @media (max-width: 768px) {

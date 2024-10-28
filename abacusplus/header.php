@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -13,6 +14,7 @@ $taglines = $header['taglines'];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,11 +26,13 @@ $taglines = $header['taglines'];
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 header__menuwrapper">
                 <div class="header__logo">
-                    <?php
-                    $logo = $header['logo'];
-                    if ($logo) : ?>
-                        <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="header__logo-img img-fluid">
-                    <?php endif; ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>">
+                        <?php
+                        $logo = $header['logo'];
+                        if ($logo) : ?>
+                            <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="header__logo-img img-fluid">
+                        <?php endif; ?>
+                    </a>
                 </div>
                 <!-- Hamburger Menu for Mobile -->
                 <div class="hamburger-menu">
@@ -66,6 +70,7 @@ $taglines = $header['taglines'];
         </div>
     </div>
 </header>
+
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <script>
