@@ -38,6 +38,14 @@ backToTopButton.addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
+const backToTopButton2 = document.getElementById('backToTopmobile');
+
+backToTopButton2.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const questionWrappers = document.querySelectorAll('.faq__question-wrapper');
@@ -89,30 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const projectItems = document.querySelectorAll('.projects__image-item');
-
-    projectItems.forEach(function (item) {
-        const hoverImage = item.getAttribute('data-hover-image');
-        const originalImage = item.style.backgroundImage;
-
-
-        if (hoverImage && originalImage) {
-
-            item.addEventListener('mouseover', function () {
-                item.style.backgroundImage = `url(${hoverImage})`;
-            });
-
-            item.addEventListener('mouseout', function () {
-                item.style.backgroundImage = originalImage;
-            });
-        }
-    });
-});
 
 
 document.addEventListener('DOMContentLoaded', function () {

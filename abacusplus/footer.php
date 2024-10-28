@@ -74,7 +74,7 @@ $footer = get_field('footer', 'options');
         <div class="footer__mobile">
             <div class="footer__copyright-2">
                 <a href="<?php echo $footer['custom_link']['link'] ?>" class="privacy w-500 color-is-black"><?php echo $footer['custom_link']['text'] ?></a>
-                <button class="footer__button secondary-button icon-right" id="backToTop">Back to top</button>
+                <button class="footer__button secondary-button icon-right" id="backToTopmobile">Back to top</button>
             </div>
             <p class="w-400 color-is-black"><?php echo $footer['copyright']; ?></p>
 
