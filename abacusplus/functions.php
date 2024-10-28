@@ -314,6 +314,11 @@ function abacusplus_scripts()
 
 		wp_enqueue_script('comment-reply');
 	}
+
+
+	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', [], null, true);
+	wp_enqueue_script('scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', ['gsap'], null, true);
+	wp_enqueue_script('projects-scroll', get_template_directory_uri() . '/js/projects-scroll.js', ['gsap', 'scrolltrigger'], null, true);
 }
 
 add_action('wp_enqueue_scripts', 'abacusplus_scripts');
