@@ -316,9 +316,14 @@ function abacusplus_scripts()
 	}
 
 
-	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', [], null, true);
-	wp_enqueue_script('scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', ['gsap'], null, true);
-	wp_enqueue_script('projects-scroll', get_template_directory_uri() . '/js/projects-scroll.js', ['gsap', 'scrolltrigger'], null, true);
+	// wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', [], null, true);
+	// wp_enqueue_script('scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', ['gsap'], null, true);
+	// wp_enqueue_script('projects-scroll', get_template_directory_uri() . '/js/projects-scroll.js', ['gsap', 'scrolltrigger'], null, true);
+
+	wp_enqueue_script('load-more-projects', get_template_directory_uri() . '/js/load-more-projects.js', ['jquery'], null, true);
+	wp_localize_script('load-more-projects', 'load_more_params', [
+		'ajax_url' => admin_url('admin-ajax.php')
+	]);
 }
 
 add_action('wp_enqueue_scripts', 'abacusplus_scripts');
@@ -771,3 +776,46 @@ add_action('admin_enqueue_scripts',  function () {
 	$css_version = filemtime(get_stylesheet_directory() . '/admin.css');
 	wp_enqueue_style('abacusplus-admin-style', get_stylesheet_directory_uri() . '/admin.css', null, $css_version);
 });
+
+
+function load_more_projects()
+{
+	$paged = isset($_POST['page']) ? $_POST['page'] : 1;
+
+	$projects_query = new WP_Query([
+		'post_type' => 'projects',
+		'posts_per_page' => 6,
+		'paged' => $paged
+	]);
+
+	if ($projects_query->have_posts()) :
+		while ($projects_query->have_posts()) : $projects_query->the_post();
+			$background_select = get_field('background_select');
+			$background_colors = get_field('background_colors', 'option');
+			$thumbnail_url = get_the_post_thumbnail_url(get_the_ID());
+			$background_color = $background_colors[$background_select] ?? '';
+			$tags = get_the_terms(get_the_ID(), 'post_tag');
+?>
+			<div class="project__image__wrapper">
+				<div class="projects__image-item <?php echo esc_attr($service_classes); ?>" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>'); background-color: <?php echo esc_attr($background_color); ?>;">
+					<h5 class="projects__image-title color-is-black w-700">
+						<?php echo esc_html(get_the_title()); ?>
+					</h5>
+				</div>
+				<?php if ($tags && !is_wp_error($tags)): ?>
+					<div class="projects__tags">
+						<?php foreach ($tags as $tag): ?>
+							<span class="projects__tag"><?php echo esc_html($tag->name); ?></span>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+<?php
+		endwhile;
+	endif;
+
+	wp_reset_postdata();
+	wp_die(); // Important to close the request
+}
+add_action('wp_ajax_load_more_projects', 'load_more_projects');
+add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');

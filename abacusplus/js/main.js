@@ -117,3 +117,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle tab clicks to filter projects based on related services
+    document.querySelectorAll('#projectTabs .nav-link').forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Get the selected category from the tab's href attribute (e.g., 'all', 'wordpress-websites')
+            const selectedCategory = this.getAttribute('href').substring(1);
+
+            // Show/hide project wrappers based on the selected category
+            document.querySelectorAll('.project__image__wrapper').forEach(wrapper => {
+                if (selectedCategory === 'all' || wrapper.querySelector('.projects__image-item').classList.contains(selectedCategory)) {
+                    wrapper.style.display = 'flex'; // Show the wrapper
+                } else {
+                    wrapper.style.display = 'none'; // Hide the wrapper
+                }
+            });
+
+            // Set the active class on the selected tab
+            document.querySelectorAll('#projectTabs .nav-link').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});

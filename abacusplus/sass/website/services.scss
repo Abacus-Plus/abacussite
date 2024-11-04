@@ -177,3 +177,127 @@
         padding-top: 24px;
     }
 }
+
+
+
+////////////////////////////////////////
+/// Projects
+.page-template-projects {
+    .hero__content {
+        width: 60%;
+        flex: unset;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    .hero {
+        padding: 80px 0px 150px 0px;
+    }
+
+    .projects {
+        padding: 0px 0px 150px 0px;
+    }
+
+    .nav-tabs {
+        border: 0;
+        margin-left: 0;
+        display: flex;
+        gap: 24px;
+        --bs-nav-tabs-border-width: 0;
+
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link {
+        padding: 10px 30px;
+        border-radius: 8px;
+        color: black;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        border: 2px solid black;
+    }
+
+    a#all-projects-tab.active {
+        background-color: #55D087;
+    }
+
+    a#mobile-apps-tab.active {
+        background-color: #FF8B37;
+    }
+
+    a#e-commerce-websites-tab.active {
+        background-color: #7B5FF1;
+    }
+
+    a#wordpress-websites-tab.active {
+        background-color: #FFD037;
+    }
+
+    .projects__images-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        width: 100%;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .projects__image-item:nth-child(2) {
+        margin-top: 0px;
+    }
+
+    .projects__image-item {
+
+        background-position-y: 50px;
+        box-shadow: 5px 6px 0px 0px #000000;
+    }
+
+    .projects__image-item:hover {
+        box-shadow: 10px 12px 0px 0px #000000;
+    }
+
+    button#load-more-projects {
+        margin: 100px auto 0 auto;
+    }
+
+    .projects__tags {
+        position: relative;
+        background-color: unset;
+        color: black;
+        max-width: 505px;
+        display: inline-block;
+        font-family: var(--primary-font);
+        font-size: 20px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: left;
+        padding: 0;
+        top: 32px;
+        margin-bottom: 100px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 50px;
+        }
+
+    }
+
+    .projects__tag {
+        font-weight: 700;
+    }
+
+    .project__image__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+}
