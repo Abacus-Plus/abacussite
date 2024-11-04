@@ -40,7 +40,7 @@ get_template_part('inc/partners'); ?>
             <?php endforeach; ?>
         </div>
 
-        <div class="services__heading_wrapper two">
+        <!-- <div class="services__heading_wrapper two">
             <h3 class="services__heading w-700 color-is-black hm-3"><?php echo $services['heading_2']; ?></h3>
             <p class="services__text w-500 color-is-black p-big"><?php echo $services['description_2']; ?></p>
         </div>
@@ -60,7 +60,7 @@ get_template_part('inc/partners'); ?>
                     </ul>
                 </div>
             <?php endforeach; ?>
-        </div>
+        </div> -->
     </div>
 
 
@@ -68,40 +68,8 @@ get_template_part('inc/partners'); ?>
 
 <?php get_template_part('inc/projects'); ?>
 
-<section class="steps">
-    <div class="container">
-        <p class="caption w-400 color-is-black"><?php echo $steps['tagline']; ?></p>
-        <h2 class="steps__title w-700 color-is-black hm-2"><?php echo $steps['heading']; ?></h2>
-        <div class="accordion" id="stepsAccordion">
-            <?php $br = 0;
-            foreach ($steps['steps'] as $index => $step): ?>
-                <?php $br++; ?>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading<?php echo $index; ?>">
-                        <button class="accordion-button collapsed w-700" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $index; ?>" aria-expanded="false" aria-controls="collapse<?php echo $index; ?>">
-                            <span class="step-number">0<?php echo $br; ?>.</span> <?php echo $step['title']; ?>
-                        </button>
-                    </h2>
-                    <div id="collapse<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $index; ?>" data-bs-parent="#stepsAccordion">
-                        <div class="accordion-body">
-                            <p class="w-500 color-is-black p-big"><?php echo $step['description']; ?></p>
-                            <div class="steps_iconwrapper">
-                                <img class="steps__icon" src="<?php echo $step['open_step_icon']['url']; ?>" alt="Icon img" />
-                                <h5 class="w-700 color-is-black hm-5"><?php echo $step['subtitle']; ?></h5>
-                            </div>
-                            <p class="w-500 color-is-black"><?php echo $step['paragraph']; ?></p>
-                            <div class="steps__deliverableswrapper">
-                                <span class="steps_deliverables"><?php echo $step['delivarables']; ?></span>
-                                <p class="w-500 color-is-black p-small"><?php echo $step['delivarables_text']; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+<?php get_template_part('inc/steps'); ?>
 
-    </div>
-</section>
 <?php
 get_template_part('inc/plans'); ?>
 
@@ -109,7 +77,6 @@ get_template_part('inc/plans'); ?>
 get_template_part('inc/testimonials'); ?>
 
 
-<?php get_template_part('inc/faq'); ?>
 
 <?php
 get_footer();

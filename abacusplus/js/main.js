@@ -143,3 +143,45 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".counter");
+
+    // Function to animate counter
+    const animateCounter = (counter) => {
+        const targetStr = counter.getAttribute("data-target");
+        const target = parseInt(targetStr.replace(/[^0-9]/g, '')); // Extract numeric part
+        const increment = Math.ceil(target / 100); // Increment for animation speed
+        let current = 0;
+
+        const updateCounter = () => {
+            current += increment;
+
+            if (current >= target) {
+                counter.innerText = targetStr; // Use original text as is (with or without %)
+            } else {
+                counter.innerText = current + (targetStr.includes('%') ? '%' : ''); // Add '%' only if present in targetStr
+                requestAnimationFrame(updateCounter);
+            }
+        };
+
+        updateCounter();
+    };
+
+    // Set up Intersection Observer to trigger counting when in view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                animateCounter(counter);
+                observer.unobserve(counter); // Stop observing once animated
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+
+    // Attach observer to each counter
+    counters.forEach(counter => observer.observe(counter));
+});
+
+const increment = Math.ceil(target / 500); // Increase for slower animation, decrease for faster

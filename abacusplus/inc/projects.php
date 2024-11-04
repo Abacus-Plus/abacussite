@@ -11,7 +11,10 @@ $projects = get_field('projects'); ?>
                     <div class="projects__content">
                         <h3 class="projects__card-title w-800 color-is-black hm-3"><?php echo $project['heading']; ?></h3>
                         <p class="projects__description w-400 color-is-black p-big"><?php echo $project['description']; ?></p>
-                        <a href="<?php echo $project['button']['url']; ?>" class="primary-button medium icon-right"><?php echo $project['button']['title']; ?></a>
+                        <a href="<?php echo $project['button']['url']; ?>" 
+                        class="<?php echo (is_singular('services') ? 'secondary-button' : 'primary-button'); ?> medium icon-right">
+                        <?php echo $project['button']['title']; ?>
+                        </a>
 
                     </div>
                     <div class="projects__images-wrapper">
@@ -26,6 +29,7 @@ $projects = get_field('projects'); ?>
 
                             $tags = get_the_terms($related_project->ID, 'post_tag');
                             ?>
+                            <a href="<?php echo get_the_permalink($related_project->ID); ?>" class="projects__linkwrapper">
                             <div class="projects__image-item"
                                 style=" background-image: url('<?php echo $thumbnail_url; ?>'); background-color: <?php echo $background_color; ?>">
                                 <h5 class="projects__image-title color-is-black w-700"><?php echo get_the_title($related_project->ID); ?></h5>
@@ -38,6 +42,7 @@ $projects = get_field('projects'); ?>
                                     <?php endif; ?>
                                 </div>
                             </div>
+                            </a>
                         <?php endforeach; ?>
                     </div>
 

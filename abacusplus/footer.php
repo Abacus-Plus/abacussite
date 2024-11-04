@@ -16,7 +16,7 @@ $footer = get_field('footer', 'options');
 
 <section class="footer">
 
-    <img class="footer__pattern" src="/wp-content/uploads/2024/10/Layer_1-2.svg" alt="pattern">
+    <img class="footer__pattern" src="<?php echo $footer['logo']; ?>" alt="pattern">
     <div class="container">
 
         <div class="footer__heading">
