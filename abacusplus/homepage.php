@@ -43,7 +43,7 @@ get_template_part('inc/plans'); ?>
 <?php get_template_part('inc/projects'); ?>
 
 
-<?php get_template_part('inc/faq'); ?>
+<?php get_template_part('inc/steps'); ?>
 
 
 <?php

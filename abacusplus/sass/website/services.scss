@@ -76,7 +76,7 @@
 
 .steps {
     padding: 150px 100px;
-    background-color: #E3E3FF;
+    background-color: #FFE387;
 
     @media (max-width: 768px) {
         padding: 80px 0px;
@@ -89,10 +89,13 @@
             padding-top: 40px;
         }
     }
+    .accordion-item {
+    border: 0;
+}
 
     .accordion-item .accordion-button.collapsed {
         padding: 40px 60px 40px 30px;
-        background-color: #e3e3ff;
+        background-color: #FFE387;
         border: 2px solid;
         border-bottom: 0;
         transition: padding-left 0.5s ease-in-out;
@@ -105,13 +108,13 @@
     }
 
     .accordion-item .accordion-button.collapsed:hover {
-        background-color: #FFE2DC;
+        background-color: #FFF;
         transition: all 0.5s ease-in-out;
         padding-left: 60px;
     }
 
     .accordion-button:not(.collapsed) {
-        background-color: #FFE2DC;
+        background-color: #FFF;
         box-shadow: unset;
         padding: 60px 60px 0px 60px;
         font-size: 64px;
@@ -131,7 +134,7 @@
 
     .accordion-body {
         padding: 34px 60px 60px 60px;
-        background-color: #FFE2DC;
+        background-color: #FFF;
 
         @media (max-width: 768px) {
             padding: 20px 30px 30px 30px;
@@ -222,22 +225,27 @@
         font-size: 18px;
         font-weight: 700;
         border: 2px solid black;
-    }
+        box-shadow: 5px 6px 0px 0px #000000;
+        }
+          .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link:hover {
+        box-shadow: 10px 12px 0px 0px #000000;
+        }
 
     a#all-projects-tab.active {
-        background-color: #55D087;
+        background-color: #99E3B7;
     }
 
     a#mobile-apps-tab.active {
-        background-color: #FF8B37;
+        background-color: #FFE387;
     }
 
     a#e-commerce-websites-tab.active {
-        background-color: #7B5FF1;
+        background-color: #B09FF7;
     }
 
     a#wordpress-websites-tab.active {
-        background-color: #FFD037;
+        background-color: #FFB987;
     }
 
     .projects__images-wrapper {
@@ -300,4 +308,95 @@
         flex-direction: column;
         gap: 32px;
     }
+}
+
+
+.single-services{
+
+    .purpleword {
+        background: linear-gradient(to right, #7B5FF1 92.6%, transparent 90%);
+        display: inline-block;
+    }
+    .services {
+    padding: 150px 100px;
+    background-color: white;
+}
+.projects {
+
+    background-color: #FFB987;}
+    .projects__image-item{
+        background-position-y:unset;
+    }
+}
+
+.numbers{
+    padding: 150px 100px;
+    background-color: #B09FF7;
+
+    &__wrapper {
+    padding-top: 80px;
+    display: flex;
+    gap: 60px;
+}
+&__card {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    flex:1;
+}
+&__card-title{
+font-family: 'Plus Jakarta Sans+', sans-serif;
+font-size: 150px;
+font-style: italic;
+letter-spacing: 0.01em;
+color:#FFB987;
+text-align: center;
+    -webkit-text-stroke: 4px black;
+}
+
+&__count{
+    text-align: center;
+}
+&__title_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+}
+
+.ourServices{
+    padding: 150px 100px;
+    background-color: #99E3B7;
+
+    &__title_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 80px;
+    }
+    &__contentwrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    }
+
+&__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3{
+        font-size: 34px;
+    }
+}
+&__wrapper {
+    display: flex;
+    gap: 24px;
+}
+&__card{
+    background-color: white;
+    padding:40px;
+    border: 2px solid black;
+}
 }
