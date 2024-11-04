@@ -88,11 +88,12 @@ textarea {
 	border-width: var(--fields-border-width);
 	border-style: var(--fields-border-style);
 	padding: var(--fields-padding);
-	font-family: var(--secondary-font);
-	color: var(--primary-color-700);
-	border-color: var(--primary-color-300);
+	font-family: var(--primary-font);
+	color: #73777B;
+	border-color: black;
 	width: 100%;
 	transition: var(--transition);
+	margin-top: 24px;
 
 	&::placeholder {
 		color: var(--primary-color-500);
@@ -119,8 +120,7 @@ input[type="datetime-local"]:focus-visible,
 input[type="color"]:focus-visible,
 textarea:focus-visible {
 	outline: 0;
-	border-color: var(--primary-color-700);
-	box-shadow: 0px 0px 2px 4px #3648704a;
+	border-color: var(--primary-color-500);
 }
 
 /* FIELDS-ERROR

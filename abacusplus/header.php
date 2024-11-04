@@ -24,7 +24,7 @@ $taglines = $header['taglines'];
 <header class="header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 header__menuwrapper">
+            <div class="col-lg-8 col-md-6 col-sm-12 header__menuwrapper">
                 <div class="header__logo">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
                         <?php
@@ -58,7 +58,7 @@ $taglines = $header['taglines'];
                     </div>
                 </nav>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-dn header__cta">
+            <div class="col-lg-4 col-md-6 col-sm-dn header__cta">
                 <div class="header__ctawrapper">
                     <?php
                     $cta = $header['cta'];
