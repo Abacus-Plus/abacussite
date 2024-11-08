@@ -68,6 +68,24 @@ $taglines = $header['taglines'];
                 </div>
             </div>
         </div>
+        <div class="header__services">
+             <div class="ourServices__wrapper">
+            <?php foreach($header['two_services'] as $os):?>
+                <a href="<?php echo $os['button']['url']; ?>">
+                <div class="ourServices__card">
+                    <div class="ourServices__contentwrapper">
+                 <img class="ourServices__icon" src="<?php echo $os['icon']['url']; ?>" alt="<?php echo $os['icon']['alt']; ?>">
+                    <div class="ourServices__content">
+                        <h3 class="ourServices__card-title w-700 color-is-black hm-3"><?php echo $os['title']; ?></h3>
+                        <p class="ourServices__description w-400 color-is-black p-big"><?php echo $os['subtitle']; ?></p>
+                    </div>
+                    </div>
+                    <p class="ourServices__text w-400 color-is-black"><?php echo $os['description']; ?></p>
+                </div>
+                </a>
+                  <?php endforeach; ?>
+         </div>
+        </div>
     </div>
 </header>
 
